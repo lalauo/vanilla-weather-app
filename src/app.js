@@ -49,9 +49,7 @@ function formatTime(timestamp) {
 // City Search
 function displayCityData(response) {
   console.log(response);
-  document.querySelector(
-    "#city"
-  ).innerHTML = `${response.data.city}, ${response.data.country}`;
+  document.querySelector("#city").innerHTML = `${response.data.city}`;
 
   document.querySelector("#current-temperature").innerHTML = Math.round(
     response.data.temperature.current
@@ -76,21 +74,20 @@ function displayCityData(response) {
   );
 
   document
-    .querySelector("#symbol")
+    .querySelector("#weather-icon")
     .setAttribute(
       "src",
       `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
     );
 
   document
-    .querySelector("#symbol")
+    .querySelector("#weather-icon")
     .setAttribute("alt", response.data.condition.icon);
 }
 
 function searchCity(city) {
   let key = "t7f33fba3c8900c9o18fa862df4036ba";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric`;
-  console.log(apiUrl);
 
   axios.get(apiUrl).then(displayCityData);
 }
@@ -106,8 +103,10 @@ form.addEventListener("submit", submitInput);
 
 // Current Location Button
 function searchLocation(position) {
+  let lon = position.coordinates.longitude;
+  let lat = position.coordinates.latitude;
   let key = "t7f33fba3c8900c9o18fa862df4036ba";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${position.coordinates.longitude}&lat=${position.coordinates.latitude}&key=${key}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${key}&units=metric`;
 
   axios.get(apiUrl).then(displayCityData);
 }
