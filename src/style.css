@@ -54,6 +54,7 @@ li {
 }
 
 #weather-description {
+  text-transform: capitalize;
   text-align: left;
   font-style: italic;
   font-weight: 400;
