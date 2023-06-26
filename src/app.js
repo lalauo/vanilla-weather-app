@@ -1,7 +1,7 @@
 //Current Date
-let now = new Date(`${response.data.time}` * 1000);
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
 
-function formatDate(date) {
   let days = [
     "Sunday",
     "Monday",
@@ -11,7 +11,7 @@ function formatDate(date) {
     "Friday",
     "Saturday",
   ];
-  let dayName = days[now.getDay()];
+  let dayName = days[date.getDay()];
 
   let months = [
     "January",
@@ -27,32 +27,24 @@ function formatDate(date) {
     "November",
     "December",
   ];
-  let month = months[now.getMonth()];
-
-  let dayNumber = now.getDate();
-
-  let year = now.getFullYear();
+  let month = months[date.getMonth()];
+  let dayNumber = date.getDate();
+  let year = date.getFullYear();
   return `${dayName} ${month} ${dayNumber}th ${year}`;
 }
 
-document.querySelector("#current-date").innerHTML = formatDate(now);
-
-//Current Time
-function formatTime(time) {
-  function addZero(digit) {
-    if (digit < 10) {
-      digit = "0" + digit;
-    }
-    return digit;
+function formatTime(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = "0" + hours;
   }
-
-  let hours = addZero(now.getHours());
-
-  let minutes = addZero(now.getMinutes());
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
   return `${hours}:${minutes}`;
 }
-
-document.querySelector("#current-time").innerHTML = formatTime(now);
 
 // City Search
 function displayCityData(response) {
@@ -74,6 +66,25 @@ function displayCityData(response) {
 
   document.querySelector("#weather-description").innerHTML =
     response.data.condition.description;
+
+  document.querySelector("#current-date").innerHTML = formatDate(
+    response.data.time * 1000
+  );
+
+  document.querySelector("#current-time").innerHTML = formatTime(
+    response.data.time * 1000
+  );
+
+  document
+    .querySelector("#symbol")
+    .setAttribute(
+      "src",
+      `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+    );
+
+  document
+    .querySelector("#symbol")
+    .setAttribute("alt", response.data.condition.icon);
 }
 
 function searchCity(city) {

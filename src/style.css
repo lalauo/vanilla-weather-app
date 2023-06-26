@@ -44,6 +44,11 @@ li {
   list-style: none;
 }
 
+#last-updated {
+  font-size: 12px;
+  font-style: italic;
+}
+
 #dateTime {
   text-align: left;
   font-weight: 200;
@@ -53,8 +58,11 @@ li {
   padding: 0;
 }
 
-#weather-description {
+#weather-description::first-letter {
   text-transform: capitalize;
+}
+
+#weather-description {
   text-align: left;
   font-style: italic;
   font-weight: 400;

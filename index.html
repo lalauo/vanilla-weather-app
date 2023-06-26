@@ -50,7 +50,10 @@
             <div class="col-5">
               <ul id="dateTime">
                 <li id="current-date">Tuesday January 17th 2023</li>
-                <li id="current-time">21:58</li>
+                <li>
+                  <span id="last-updated">Last updated:</span>
+                  <span id="current-time">21:58</span>
+                </li>
               </ul>
               <p id="weather-description"></p>
             </div>
@@ -65,7 +68,12 @@
                 <li id="wind">Wind Speed: m/s</li>
               </ul>
             </div>
-            <div class="col-4" id="symbol">🌤️</div>
+            <div class="col-4" id="symbol">
+              <img
+                src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-night.png"
+                alt="few-clouds-night"
+              />
+            </div>
           </div>
           <div class="container-secondary text-center" id="forecast">
             <div class="row justify-content-center">
