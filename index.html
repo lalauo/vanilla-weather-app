@@ -21,99 +21,108 @@
   </head>
   <body>
     <div class="container text-center">
-      <div class="weather-app">
-        <form id="city-search">
-          <div class="row">
-            <div class="col-9">
-              <input
-                type="text"
-                id="city-input"
-                placeholder="Enter City Name"
-                autofocus="on"
-                autocomplete="off"
-                class="form-control"
-              />
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <form id="city-search">
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="text"
+                  id="city-input"
+                  placeholder="Enter City Name"
+                  autofocus="on"
+                  autocomplete="off"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  id="search-button"
+                  class="form-control"
+                />
+              </div>
             </div>
-            <div class="col-3">
-              <input
-                type="submit"
-                value="Search"
-                id="search-button"
-                class="form-control"
-              />
+          </form>
+          <h1 id="city">Lagos, NG</h1>
+          <div class="row" id="overview">
+            <div class="col-5">
+              <ul id="dateTime">
+                <li id="current-date">Tuesday January 17th 2023</li>
+                <li id="current-time">21:58</li>
+              </ul>
+              <p id="weather-description">Partly Cloudy</p>
+            </div>
+            <div class="col-3" id="weather">
+              <span id="current-temperature">30</span>
+              <span id="units">
+                <a href="#" id="celsius-link">°C</a> |
+                <a href="#" id="fahrenheit-link">°F</a>
+              </span>
+              <ul id="conditions">
+                <li id="humidity">Humidity: 12%</li>
+                <li id="wind">Wind Speed: 11m/s</li>
+              </ul>
+            </div>
+            <div class="col-4" id="symbol">🌤️</div>
+          </div>
+          <div class="container-secondary text-center" id="forecast">
+            <div class="row justify-content-center">
+              <div class="col-2" id="day1">
+                Tue <br />
+                🌤️ <br />
+                <span id="daily-high">34°C</span>
+                <span id="daily-low">24°C</span>
+              </div>
+              <div class="col-2" id="day2">
+                Wed <br />
+                🌤️ <br />
+                <span id="daily-high">34°C</span>
+                <span id="daily-low">21°C</span>
+              </div>
+              <div class="col-2" id="day3">
+                Thu <br />
+                🌤️ <br />
+                <span id="daily-high">33°C</span>
+                <span id="daily-low">24°C</span>
+              </div>
+              <div class="col-2" id="day4">
+                Fri <br />
+                🌤️ <br />
+                <span id="daily-high">34°C</span>
+                <span id="daily-low">20°C</span>
+              </div>
+              <div class="col-2" id="day5">
+                Sat <br />
+                🌤️ <br />
+                <span id="daily-high">34°C</span>
+                <span id="daily-low">25°C</span>
+              </div>
+              <div class="col-2" id="day6">
+                Sun <br />
+                🌤️ <br />
+                <span id="daily-high">34°C</span>
+                <span id="daily-low">23°C</span>
+              </div>
             </div>
           </div>
-        </form>
-        <h1 id="city"></h1>
-        <div class="row">
-          <div class="col-5" id="dateTime">
-            <p>
-              <span id="current-date"> Tuesday January 17th 2023 </span>
-              <br />
-              <span id="current-time"> 21:58 </span>
-              <br /><br />
-              <span id="weather-description"></span>
-            </p>
-          </div>
-          <div class="col-3" id="weather">
-            <span id="current-temperature"></span>
-            <a href="#" id="celsius-link">°C</a> |
-            <a href="#" id="fahrenheit-link">°F</a>
-            <span id="conditions">
-              <span id="humidity">Humidity: %</span>
-              <br />
-              <span id="wind">Wind Speed: m/s</span>
-            </span>
-          </div>
-          <div class="col-4" id="symbol">🌤️</div>
-        </div>
-        <div class="container-secondary text-center">
-          <div class="row justify-content-center" id="forecast">
-            <div class="col-2" id="day1">
-              Tue <br />
-              🌤️ <br />
-              34°C / 24°C
-            </div>
-            <div class="col-2" id="day2">
-              Wed <br />
-              🌤️ <br />
-              34°C / 24°C
-            </div>
-            <div class="col-2" id="day3">
-              Thu <br />
-              🌤️ <br />
-              33°C / 24°C
-            </div>
-            <div class="col-2" id="day4">
-              Fri <br />
-              🌤️ <br />
-              34°C / 24°C
-            </div>
-            <div class="col-2" id="day5">
-              Sat <br />
-              🌤️ <br />
-              34°C / 25°C
-            </div>
-            <div class="col-2" id="day6">
-              Sun <br />
-              🌤️ <br />
-              34°C / 25°C
-            </div>
+          <div>
+            <button type="button" id="reset-button">Here & Now</button>
           </div>
         </div>
         <div>
-          <button type="button" id="reset-button">Here & Now</button>
+          <p id="source-code">
+            <a
+              href="https://github.com/lalauo/weather-app-project.git"
+              target="_blank"
+              id="source-link"
+              >Open-source code</a
+            >
+            by Lala Oyegun
+          </p>
         </div>
       </div>
-      <p id="source-code">
-        <a
-          href="https://github.com/lalauo/weather-app-project.git"
-          target="_blank"
-          id="source-link"
-          >Open-source code</a
-        >
-        by Lala Oyegun
-      </p>
     </div>
     <script src="src\index.js"></script>
   </body>
