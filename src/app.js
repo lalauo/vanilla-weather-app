@@ -49,7 +49,9 @@ function formatTime(timestamp) {
 // City Search
 function displayCityData(response) {
   console.log(response);
-  document.querySelector("#city").innerHTML = `${response.data.city}`;
+  document.querySelector(
+    "#city"
+  ).innerHTML = `${response.data.city}, ${response.data.country}`;
 
   document.querySelector("#current-temperature").innerHTML = Math.round(
     response.data.temperature.current

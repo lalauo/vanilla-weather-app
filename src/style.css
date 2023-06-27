@@ -37,7 +37,11 @@ input {
   font-size: 60px;
   font-weight: 500;
   text-align: left;
-  margin: 6px;
+  margin: 10px 0px 0px 0px;
+}
+
+div#overview.row {
+  margin-top: 0px;
 }
 
 li {
@@ -52,24 +56,13 @@ li {
 #dateTime {
   text-align: left;
   font-weight: 200;
-  font-size: 17px;
-  margin-left: 10px;
-  margin-top: 20px;
-  padding: 0;
+  font-size: 19px;
+  margin: 25px 0px 0px -20px;
+  padding: 20px;
 }
 
-#weather-description::first-letter {
-  text-transform: capitalize;
-}
-
-#weather-description {
-  text-align: left;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 16px;
-  margin-left: 10px;
-  margin-top: 30px;
-  padding: 0;
+#update-time {
+  margin-top: 10px;
 }
 
 #current-temperature {
@@ -89,22 +82,36 @@ a {
 }
 
 #conditions {
-  text-align: center;
+  text-align: left;
   font-style: italic;
   font-weight: 300;
   padding: 0;
   font-size: 12px;
-  margin-top: -20px;
+  margin-top: -10px;
 }
 
-#symbol {
-  font-size: 120px;
-  margin-top: -30px;
-  margin-bottom: 15px;
+img {
+  width: 70%;
+  filter: drop-shadow(10px 10px 5px rgb(184, 184, 184));
+  margin-top: -20px;
+  padding: 0;
+}
+
+#weather-description::first-letter {
+  text-transform: capitalize;
+}
+
+#weather-description {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  margin: -10px auto;
+  padding: 0;
 }
 
 #forecast {
   font-size: 16px;
+  margin-top: 20px;
   margin-bottom: 5px;
 }
 
@@ -119,7 +126,7 @@ a {
 }
 
 button {
-  margin: 20px auto 10px;
+  margin: 20px auto 5px;
   width: 120px;
   font-size: 16px;
   font-weight: 300;
