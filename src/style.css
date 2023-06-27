@@ -108,7 +108,7 @@ a {
   margin-left: -35px;
 }
 
-img {
+#weather-icon {
   width: 70%;
   filter: drop-shadow(10px 10px 5px rgb(184, 184, 184));
   margin: 0 auto;
@@ -128,9 +128,16 @@ img {
 }
 
 #forecast {
-  font-size: 16px;
   margin-top: 20px;
   margin-bottom: 5px;
+}
+
+#weekday {
+  font-size: 17px;
+}
+
+#daily-temperature {
+  font-size: 14px;
 }
 
 #daily-high {

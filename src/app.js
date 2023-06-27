@@ -1,4 +1,4 @@
-//Current Date
+//Current Date & Time
 function formatDate(timestamp) {
   let date = new Date(timestamp);
 
@@ -100,9 +100,6 @@ function submitInput(event) {
   searchCity(city);
 }
 
-let form = document.querySelector("form#city-search");
-form.addEventListener("submit", submitInput);
-
 // Current Location Button
 function searchLocation(position) {
   let lon = position.coordinates.longitude;
@@ -117,9 +114,6 @@ function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
-
-let button = document.querySelector("#reset-button");
-button.addEventListener("click", getCurrentLocation);
 
 // Unit Conversion
 
@@ -153,5 +147,11 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+let form = document.querySelector("form#city-search");
+form.addEventListener("submit", submitInput);
+
+let button = document.querySelector("#reset-button");
+button.addEventListener("click", getCurrentLocation);
 
 searchCity("Lagos");
