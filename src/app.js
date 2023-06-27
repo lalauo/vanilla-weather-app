@@ -48,7 +48,6 @@ function formatTime(timestamp) {
 
 // City Search
 function displayCityData(response) {
-  console.log(response);
   document.querySelector(
     "#city"
   ).innerHTML = `${response.data.city}, ${response.data.country}`;
