@@ -53,9 +53,18 @@ function displayCityData(response) {
     "#city"
   ).innerHTML = `${response.data.city}, ${response.data.country}`;
 
-  document.querySelector("#current-temperature").innerHTML = Math.round(
-    response.data.temperature.current
+  document.querySelector("#current-date").innerHTML = formatDate(
+    response.data.time * 1000
   );
+
+  document.querySelector("#current-time").innerHTML = formatTime(
+    response.data.time * 1000
+  );
+
+  celsiusTemperature = response.data.temperature.current;
+
+  document.querySelector("#current-temperature").innerHTML =
+    Math.round(celsiusTemperature);
 
   document.querySelector(
     "#humidity"
@@ -66,14 +75,6 @@ function displayCityData(response) {
 
   document.querySelector("#weather-description").innerHTML =
     response.data.condition.description;
-
-  document.querySelector("#current-date").innerHTML = formatDate(
-    response.data.time * 1000
-  );
-
-  document.querySelector("#current-time").innerHTML = formatTime(
-    response.data.time * 1000
-  );
 
   document
     .querySelector("#weather-icon")
@@ -120,5 +121,38 @@ function getCurrentLocation(event) {
 
 let button = document.querySelector("#reset-button");
 button.addEventListener("click", getCurrentLocation);
+
+// Unit Conversion
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+
+  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
+  document.querySelector("#current-temperature").innerHTML =
+    fahrenheitTemperature;
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+
+  document.querySelector("#current-temperature").innerHTML =
+    Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = "null";
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("Lagos");

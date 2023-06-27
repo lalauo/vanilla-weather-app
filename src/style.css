@@ -65,24 +65,38 @@ li {
   margin-top: 10px;
 }
 
+#weather {
+  margin-left: 10px;
+}
+
+#current-date {
+  margin-top: -10px;
+}
+
 #current-temperature {
   font-size: 75px;
   font-weight: 400;
   margin-bottom: 0;
+  margin-left: -65px;
 }
 
 a {
   text-decoration: none;
 }
 
-#units {
+.units {
   position: relative;
   font-size: 16px;
   top: -38px;
 }
 
+.units .active {
+  color: black;
+  cursor: default;
+}
+
 #conditions {
-  text-align: left;
+  text-align: justify;
   font-style: italic;
   font-weight: 300;
   padding: 0;
@@ -90,10 +104,14 @@ a {
   margin-top: -10px;
 }
 
+#symbol {
+  margin-left: -35px;
+}
+
 img {
   width: 70%;
   filter: drop-shadow(10px 10px 5px rgb(184, 184, 184));
-  margin-top: -20px;
+  margin: 0 auto;
   padding: 0;
 }
 
