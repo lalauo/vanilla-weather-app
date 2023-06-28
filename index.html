@@ -47,28 +47,17 @@
           </form>
           <h1 class="h1-city" id="city"></h1>
           <div class="row" id="overview">
-            <div class="col-5">
+            <div class="col-6">
               <ul class="date-time">
                 <li class="current-date" id="current-date">
                   Tuesday January 17th 2023
                 </li>
-                <li class="update-time" id="update-time">
+                <li class="time" id="update-time">
                   <span class="last-updated" id="last-updated"
                     >Last updated:</span
                   >
                   <span id="current-time">21:58</span>
                 </li>
-              </ul>
-            </div>
-            <div class="col-4" id="weather">
-              <span class="current-temperature" id="current-temperature"></span>
-              <span class="units">
-                <a href="#" id="celsius-link" class="active">°C</a> |
-                <a href="#" id="fahrenheit-link">°F</a>
-              </span>
-              <ul class="conditions" id="conditions">
-                <li id="humidity">Humidity: %</li>
-                <li id="wind">Wind Speed: km/h</li>
               </ul>
             </div>
             <div class="col-3" id="symbol">
@@ -79,6 +68,14 @@
                 id="weather-icon"
               />
               <p class="weather-description" id="weather-description"></p>
+            </div>
+            <div class="col-3" id="weather">
+              <span class="current-temperature" id="current-temperature"></span>
+              <span class="unit">°C</span>
+              <ul class="conditions" id="conditions">
+                <li id="humidity">Humidity: %</li>
+                <li id="wind">Wind Speed: m/s</li>
+              </ul>
             </div>
           </div>
           <div class="forecast" id="forecast"></div>

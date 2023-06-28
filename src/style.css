@@ -1,5 +1,5 @@
 .weather-app-wrapper {
-  max-width: 740px;
+  max-width: 700px;
   margin: 30px auto;
 }
 
@@ -37,31 +37,24 @@ input {
   font-size: 60px;
   font-weight: 500;
   text-align: left;
-  margin: 10px 0px 0px 0px;
+  margin: 10px 0px 0px 2px;
 }
 
 div.row#overview {
-  margin-top: 0px;
+  margin-top: 7px;
 }
 
 li {
   list-style: none;
 }
 
-.date-time {
+div.col-6 {
   text-align: left;
-  font-weight: 200;
+  font-weight: 300;
   font-size: 19px;
-  margin: 25px 0px 0px -20px;
-  padding: 20px;
-}
-
-.current-date {
-  margin-top: -10px;
-}
-
-.update-time {
-  margin-top: 10px;
+  margin-top: 50px;
+  margin-left: -25px;
+  width: 45%;
 }
 
 .last-updated {
@@ -69,49 +62,27 @@ li {
   font-style: italic;
 }
 
-div.col-4#weather {
-  margin-left: 10px;
-}
-
-.current-temperature {
-  font-size: 75px;
-  font-weight: 400;
-  margin-bottom: 0;
-  margin-left: -65px;
-}
-
-a {
-  text-decoration: none;
-}
-
-.units {
-  position: relative;
-  font-size: 16px;
-  top: -38px;
-}
-
-.units .active {
-  color: black;
-  cursor: default;
-}
-
-.conditions {
-  text-align: justify;
-  font-style: italic;
-  font-weight: 300;
-  padding: 0;
-  font-size: 12px;
-  margin-top: -10px;
+.time {
+  margin-top: 10px;
 }
 
 div.col-3#symbol {
-  margin-left: -35px;
+  margin-left: -10px;
+  margin-top: 0px;
 }
 
 .weather-icon {
-  width: 70%;
+  width: 75%;
   filter: drop-shadow(10px 10px 5px rgb(184, 184, 184));
   margin: 0 auto;
+  padding: 0;
+}
+
+.weather-description {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  margin: -10px auto;
   padding: 0;
 }
 
@@ -119,12 +90,30 @@ div.col-3#symbol {
   text-transform: capitalize;
 }
 
-.weather-description {
-  font-style: italic;
+div.col-3#weather {
+  margin-left: 50px;
+}
+
+.current-temperature {
+  font-size: 80px;
   font-weight: 400;
+  margin-bottom: 0;
+  margin-left: -40px;
+}
+
+.unit {
+  position: relative;
   font-size: 16px;
-  margin: -10px auto;
+  top: -48px;
+}
+
+.conditions {
+  text-align: left;
+  font-style: italic;
+  font-weight: 300;
   padding: 0;
+  font-size: 12px;
+  margin-top: -20px;
 }
 
 .forecast {
@@ -177,8 +166,12 @@ button:active {
   transform: translateY(4px);
 }
 
+a {
+  text-decoration: none;
+}
+
 .source-code {
   text-align: left;
-  margin: 5px;
+  margin: 3px;
   font-size: 12px;
 }
