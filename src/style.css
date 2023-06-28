@@ -23,7 +23,7 @@ input {
   margin-bottom: 5px;
 }
 
-#search-button {
+.form-control.button {
   background-color: #ffe9a0;
 }
 
@@ -32,7 +32,7 @@ input {
   box-shadow: none;
 }
 
-#city {
+.h1-city {
   color: #367e18;
   font-size: 60px;
   font-weight: 500;
@@ -40,7 +40,7 @@ input {
   margin: 10px 0px 0px 0px;
 }
 
-div#overview.row {
+div.row#overview {
   margin-top: 0px;
 }
 
@@ -48,12 +48,7 @@ li {
   list-style: none;
 }
 
-#last-updated {
-  font-size: 12px;
-  font-style: italic;
-}
-
-#dateTime {
+.date-time {
   text-align: left;
   font-weight: 200;
   font-size: 19px;
@@ -61,19 +56,24 @@ li {
   padding: 20px;
 }
 
-#update-time {
-  margin-top: 10px;
-}
-
-#weather {
-  margin-left: 10px;
-}
-
-#current-date {
+.current-date {
   margin-top: -10px;
 }
 
-#current-temperature {
+.update-time {
+  margin-top: 10px;
+}
+
+.last-updated {
+  font-size: 12px;
+  font-style: italic;
+}
+
+div.col-4#weather {
+  margin-left: 10px;
+}
+
+.current-temperature {
   font-size: 75px;
   font-weight: 400;
   margin-bottom: 0;
@@ -95,7 +95,7 @@ a {
   cursor: default;
 }
 
-#conditions {
+.conditions {
   text-align: justify;
   font-style: italic;
   font-weight: 300;
@@ -104,22 +104,22 @@ a {
   margin-top: -10px;
 }
 
-#symbol {
+div.col-3#symbol {
   margin-left: -35px;
 }
 
-#weather-icon {
+.weather-icon {
   width: 70%;
   filter: drop-shadow(10px 10px 5px rgb(184, 184, 184));
   margin: 0 auto;
   padding: 0;
 }
 
-#weather-description::first-letter {
+.weather-description::first-letter {
   text-transform: capitalize;
 }
 
-#weather-description {
+.weather-description {
   font-style: italic;
   font-weight: 400;
   font-size: 16px;
@@ -127,25 +127,25 @@ a {
   padding: 0;
 }
 
-#forecast {
+.forecast {
   margin-top: 20px;
   margin-bottom: 5px;
 }
 
-#weekday {
+.weekday {
   font-size: 17px;
 }
 
-#daily-temperature {
+.daily-temperature {
   font-size: 14px;
 }
 
-#daily-high {
+.daily-high {
   font-weight: 400;
   color: #cc3636;
 }
 
-#daily-low {
+.daily-low {
   font-weight: 400;
   color: #8ebed3;
 }
@@ -177,7 +177,7 @@ button:active {
   transform: translateY(4px);
 }
 
-#source-code {
+.source-code {
   text-align: left;
   margin: 5px;
   font-size: 12px;

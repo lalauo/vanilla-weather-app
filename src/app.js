@@ -138,6 +138,35 @@ function displayCelsiusTemperature(event) {
     Math.round(celsiusTemperature);
 }
 
+// Forecast
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Wed", "Thu", "Fri", "Sat", "Sun", "Mon"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+              <div class="col-2">
+                <div class="weekday" id="weekday">${day}</div>
+                <img
+                  src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-night.png"
+                  alt="few-clouds-night"
+                  width="45px"
+                />
+                <div class="daily-temperature" id="daily-temperature">
+                  <span class="daily-high" id="daily-high">34°C</span>
+                  <span class="daily-low" id="daily-low">24°C</span>
+                </div>
+              </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let celsiusTemperature = "null";
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
@@ -155,3 +184,5 @@ let button = document.querySelector("#reset-button");
 button.addEventListener("click", getCurrentLocation);
 
 searchCity("Lagos");
+
+displayForecast();

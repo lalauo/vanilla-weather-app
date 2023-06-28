@@ -40,29 +40,33 @@
                   type="submit"
                   value="Search"
                   id="search-button"
-                  class="form-control"
+                  class="form-control button"
                 />
               </div>
             </div>
           </form>
-          <h1 id="city"></h1>
+          <h1 class="h1-city" id="city"></h1>
           <div class="row" id="overview">
             <div class="col-5">
-              <ul id="dateTime">
-                <li id="current-date">Tuesday January 17th 2023</li>
-                <li id="update-time">
-                  <span id="last-updated">Last updated:</span>
+              <ul class="date-time">
+                <li class="current-date" id="current-date">
+                  Tuesday January 17th 2023
+                </li>
+                <li class="update-time" id="update-time">
+                  <span class="last-updated" id="last-updated"
+                    >Last updated:</span
+                  >
                   <span id="current-time">21:58</span>
                 </li>
               </ul>
             </div>
             <div class="col-4" id="weather">
-              <span id="current-temperature"></span>
+              <span class="current-temperature" id="current-temperature"></span>
               <span class="units">
                 <a href="#" id="celsius-link" class="active">°C</a> |
                 <a href="#" id="fahrenheit-link">°F</a>
               </span>
-              <ul id="conditions">
+              <ul class="conditions" id="conditions">
                 <li id="humidity">Humidity: %</li>
                 <li id="wind">Wind Speed: m/s</li>
               </ul>
@@ -71,24 +75,25 @@
               <img
                 src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-night.png"
                 alt="few-clouds-night"
+                class="weather-icon"
                 id="weather-icon"
               />
-              <p id="weather-description"></p>
+              <p class="weather-description" id="weather-description"></p>
             </div>
           </div>
-          <div class="container-secondary text-center" id="forecast">
-            <div class="row justify-content-center">
-              <div class="col-2" id="day1">
-                <div id="weekday">Tue</div>
+          <div class="forecast" id="forecast">
+            <div class="row">
+              <div class="col-2">
+                <div class="weekday" id="weekday">Tue</div>
                 <img
                   src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-night.png"
                   alt="few-clouds-night"
                   id="day1-icon"
                   width="45px"
                 />
-                <div id="daily-temperature">
-                  <span id="daily-high">34°C</span>
-                  <span id="daily-low">24°C</span>
+                <div class="daily-temperature" id="daily-temperature">
+                  <span class="daily-high" id="daily-high">34°C</span>
+                  <span class="daily-low" id="daily-low">24°C</span>
                 </div>
               </div>
             </div>
@@ -98,7 +103,7 @@
           </div>
         </div>
         <div>
-          <p id="source-code">
+          <p class="source-code">
             <a
               href="https://github.com/lalauo/vanilla-weather-app.git"
               target="_blank"
