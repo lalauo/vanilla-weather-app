@@ -85,6 +85,8 @@ function displayCityData(response) {
   document
     .querySelector("#weather-icon")
     .setAttribute("alt", response.data.condition.icon);
+
+  getForecast(response.data.city);
 }
 
 function searchCity(city) {
@@ -140,7 +142,15 @@ function displayCelsiusTemperature(event) {
 
 // Forecast
 
-function displayForecast() {
+function getForecast(cityName) {
+  let key = "t7f33fba3c8900c9o18fa862df4036ba";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${cityName}&key=${key}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Wed", "Thu", "Fri", "Sat", "Sun", "Mon"];
@@ -184,5 +194,3 @@ let button = document.querySelector("#reset-button");
 button.addEventListener("click", getCurrentLocation);
 
 searchCity("Lagos");
-
-displayForecast();
