@@ -30,16 +30,16 @@ function formatDate(timestamp) {
   let month = months[date.getMonth()];
   let dayNumber = date.getDate();
   let year = date.getFullYear();
-  return `${dayName} ${month} ${dayNumber}th ${year}`;
+  return `${dayName} ${month} ${dayNumber}, ${year}`;
 }
 
 function formatTime(timestamp) {
-  let date = new Date(timestamp * 1000);
-  let hours = date.getHours();
+  let time = new Date(timestamp * 1000);
+  let hours = time.getHours();
   if (hours < 10) {
     hours = "0" + hours;
   }
-  let minutes = date.getMinutes();
+  let minutes = time.getMinutes();
   if (minutes < 10) {
     minutes = "0" + minutes;
   }
@@ -60,17 +60,16 @@ function displayCityData(response) {
     response.data.time * 1000
   );
 
-  celsiusTemperature = response.data.temperature.current;
+  celsiusTemperature = Math.round(response.data.temperature.current);
 
-  document.querySelector("#current-temperature").innerHTML =
-    Math.round(celsiusTemperature);
+  document.querySelector("#current-temperature").innerHTML = celsiusTemperature;
 
   document.querySelector(
     "#humidity"
   ).innerHTML = `Humidity: ${response.data.temperature.humidity}%`;
 
   let windSpeed = Math.round(response.data.wind.speed);
-  document.querySelector("#wind").innerHTML = `Wind Speed: ${windSpeed} m/s`;
+  document.querySelector("#wind").innerHTML = `Wind Speed: ${windSpeed} km/h`;
 
   document.querySelector("#weather-description").innerHTML =
     response.data.condition.description;
@@ -103,11 +102,10 @@ function submitInput(event) {
 }
 
 // Current Location Button
+
 function searchLocation(position) {
-  let lon = position.coordinates.longitude;
-  let lat = position.coordinates.latitude;
   let key = "t7f33fba3c8900c9o18fa862df4036ba";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${key}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${key}&units=metric`;
 
   axios.get(apiUrl).then(displayCityData);
 }
@@ -126,6 +124,7 @@ function displayFahrenheitTemperature(event) {
   fahrenheitLink.classList.add("active");
 
   let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
+
   document.querySelector("#current-temperature").innerHTML =
     fahrenheitTemperature;
 }
@@ -142,42 +141,61 @@ function displayCelsiusTemperature(event) {
 
 // Forecast
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function getForecast(cityName) {
   let key = "t7f33fba3c8900c9o18fa862df4036ba";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${cityName}&key=${key}&units=metric`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["Wed", "Thu", "Fri", "Sat", "Sun", "Mon"];
-
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+
+  forecast.forEach(function (forecastDay, index) {
+    if (0 < index) {
+      forecastHTML =
+        forecastHTML +
+        `
               <div class="col-2">
-                <div class="weekday" id="weekday">${day}</div>
+                <div class="weekday" id="weekday">${formatDay(
+                  forecastDay.time
+                )}</div>
                 <img
-                  src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-night.png"
-                  alt="few-clouds-night"
+                  src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                    forecastDay.condition.icon
+                  }.png"
+                  alt="${forecastDay.condition.icon}"
                   width="45px"
                 />
-                <div class="daily-temperature" id="daily-temperature">
-                  <span class="daily-high" id="daily-high">34°C</span>
-                  <span class="daily-low" id="daily-low">24°C</span>
+                <div class="daily-temperature">
+                  <span class="daily-high">${Math.round(
+                    forecastDay.temperature.maximum
+                  )}°C</span>
+                  <span class="daily-low">${Math.round(
+                    forecastDay.temperature.minimum
+                  )}°C</span>
                 </div>
               </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
 
-let celsiusTemperature = "null";
+// Global
+let celsiusTemperature = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 
